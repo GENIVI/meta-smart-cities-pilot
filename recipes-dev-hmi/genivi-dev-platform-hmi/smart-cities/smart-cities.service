@@ -1,0 +1,15 @@
+[Unit]
+Description=GENIVI Smart Cities HMI
+Requires=dbus.service
+After=weston.service
+
+[Service]
+Environment=LD_PRELOAD=/usr/lib/libEGL.so
+Environment=QT_RVI_NODE_CONFIG_FILE=/etc/rvi/conf.json
+ExecStartPre=/bin/ping -c 1 8.8.8.8
+ExecStart=/opt/smart-cities/bin/smart-cities -platform wayland
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=default.target
