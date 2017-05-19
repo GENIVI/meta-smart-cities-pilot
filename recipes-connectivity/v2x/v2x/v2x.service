@@ -1,0 +1,17 @@
+# Copyright (c) 2017, GENIVI Alliance
+# 
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, you can obtain one at http://mozilla.org/MPL/2.0. 
+
+[Unit]
+Description=Reset V2X control port
+
+[Service]
+ExecStart=@SBINDIR@/v2x-reset.sh
+RuntimeMaxSec=5
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
