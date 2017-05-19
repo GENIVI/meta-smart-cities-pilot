@@ -1,0 +1,20 @@
+diff --git a/qtposition_gpsd.pro b/qtposition_gpsd.pro
+index 06541b5..d7cbfd0 100644
+--- a/qtposition_gpsd.pro
++++ b/qtposition_gpsd.pro
+@@ -4,6 +4,8 @@ QT = core network positioning
+ TEMPLATE = lib
+ CONFIG += plugin
+ 
++PLUGIN_TYPE = position
++
+ HEADERS += \
+     gpsdmasterdevice.h \
+     qgeopositioninfosource_gpsd.h \
+@@ -17,3 +19,6 @@ SOURCES += \
+     qgeosatelliteinfosource_gpsd.cpp
+ 
+ OTHER_FILES += plugin.json
++
++target.path = $$[QT_INSTALL_PLUGINS]/position
++INSTALLS += target
