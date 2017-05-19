@@ -1,0 +1,17 @@
+#!/bin/sh
+# PPP_TTYNAME is set by /etc/ppp/ip-up
+# TTYs may be remounted, but the following are always 
+#   mounted in sequential order:
+# n. GPS (NMEA) stream tty
+# n+1. PPP tty
+# n+2. AT control socket for SIMCOM chip
+
+/usr/bin/logoger "Sanity check: in 91removegps script"
+
+# Derive location of GPS socket tty by decrementing PPP_TTYNAME
+GPS_TTYNAME="$PPP_TTYNAME";
+[[ "$GPS_TTYNAME" =~ (.*[^0-9])([0-9]+)$ ]] &&
+    GPS_TTYNAME="${BASH_REMATCH[1]}$((${BASH_REMATCH[2]} - 1))";
+
+# Remove GPS socket tty to GPSD device list
+/usr/sbin/gpsdctl remove /dev/$GPS_TTYNAME

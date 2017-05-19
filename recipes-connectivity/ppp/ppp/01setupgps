@@ -1,0 +1,23 @@
+#!/bin/sh
+# PPP_TTYNAME is set by /etc/ppp/ip-up
+# TTYs may be remounted, but the following are always 
+#   mounted in sequential order:
+# n. GPS (NMEA) stream tty
+# n+1. PPP tty
+# n+2. AT control socket for SIMCOM chip
+
+# Derive location of AT control socket tty by incrementing PPP_TTYNAME
+AT_TTYNAME="$PPP_TTYNAME";
+[[ "$AT_TTYNAME" =~ (.*[^0-9])([0-9]+)$ ]] &&
+    AT_TTYNAME="${BASH_REMATCH[1]}$((${BASH_REMATCH[2]} + 1))";
+
+# Re-enable GPS stream
+/bin/echo -e "at+cgps=1\r" > /dev/$AT_TTYNAME
+
+# Derive location of GPS socket tty by decrementing PPP_TTYNAME
+GPS_TTYNAME="$PPP_TTYNAME";
+[[ "$GPS_TTYNAME" =~ (.*[^0-9])([0-9]+)$ ]] &&
+    GPS_TTYNAME="${BASH_REMATCH[1]}$((${BASH_REMATCH[2]} - 1))";
+
+# Add GPS socket tty to GPSD device list
+/usr/sbin/gpsdctl add /dev/$GPS_TTYNAME

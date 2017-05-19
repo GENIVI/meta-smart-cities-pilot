@@ -1,0 +1,13 @@
+[Unit]
+Description=PPP link to %I
+Before=network.target
+
+[Service]
+Type=forking
+ExecStart=/usr/bin/pon
+ExecStop=/usr/bin/poff -a
+Restart=always
+RestartSec=1
+
+[Install]
+WantedBy=multi-user.target
