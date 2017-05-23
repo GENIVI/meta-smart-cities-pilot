@@ -33,6 +33,8 @@ IMAGE_INSTALL_append = " \
     qtrvi \
     gpsd \
     ppp \
+    ntp \
+    ntpdate \
     smart-cities \
     v2x \
     "
