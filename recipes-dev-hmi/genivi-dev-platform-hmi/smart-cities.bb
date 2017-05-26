@@ -1,5 +1,5 @@
 SRC_URI = " \
-          git://github.com/tjamison/smart-cities.git \
+          git://github.com/GENIVI/smart-cities.git \
           "
 SRCREV = "${AUTOREV}"
 LICENSE  = "MPL-2.0"
