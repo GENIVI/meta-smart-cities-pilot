@@ -7,15 +7,3 @@ index a50ea54..6e3b044 100644
  
  SUBDIRS += com/genivi/rvitrafficservice \
 -           qtposition_gpsd
-diff --git a/smart-cities.pro b/smart-cities.pro
-index 8e72818..c74b020 100644
---- a/smart-cities.pro
-+++ b/smart-cities.pro
-@@ -4,7 +4,6 @@ CONFIG += desktop
- 
- SUBDIRS += plugins \
-            smart-cities \
--#           qtrvi
- 
- 
- QML_IMPORT_PATH = plugins
