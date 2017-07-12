@@ -16,12 +16,12 @@ DEPENDS = " librvi qtbase "
 RDEPENDS_${PN} = " librvi "
 
 SRC_URI = "\
-    git://github.com/PDXostc/qtrvi.git;protocol=https;branch=master \
+    git://github.com/tjamison/qtrvi.git;protocol=https;branch=master \
     "
 
 # Modify these as desired
 PV = "1.0+git${SRCPV}"
-SRCREV = "183c7d9fd7317966d92d71a1a26dd9c282003e4d"
+SRCREV = "ff8548c5a786080c129b38a0ebd0a174bb50f4f7"
 
 S = "${WORKDIR}/git"
 
