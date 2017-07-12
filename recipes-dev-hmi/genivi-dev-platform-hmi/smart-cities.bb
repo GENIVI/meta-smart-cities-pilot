@@ -5,9 +5,9 @@ SRCREV = "${AUTOREV}"
 LICENSE  = "MPL-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=9741c346eef56131163e13b9db1241b3"
 
-DEPENDS = "dbus-c++ systemd wayland-ivi-extension qtquick1 qtbase qtrvi librvi qtposition-gpsd qtquickcontrols"
+DEPENDS = "dbus-c++ systemd wayland-ivi-extension qtquick1 qtbase qtrvi librvi qtposition-gpsd qtquickcontrols qtdeclarative qtv2x"
 
-RDEPENDS_${PN} += "qtbase qtsvg qtrvi librvi qtposition-gpsd qtquickcontrols"
+RDEPENDS_${PN} += "qtbase qtsvg qtrvi librvi qtposition-gpsd qtquickcontrols qtdeclarative qtv2x"
 
 S = "${WORKDIR}/git"
 

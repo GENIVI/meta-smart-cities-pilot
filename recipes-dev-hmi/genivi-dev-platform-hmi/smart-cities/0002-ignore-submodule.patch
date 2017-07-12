@@ -1,21 +1,11 @@
 diff --git a/plugins/plugins.pro b/plugins/plugins.pro
-index a50ea54..6e3b044 100644
+index d6cf0a8..6e3b044 100644
 --- a/plugins/plugins.pro
 +++ b/plugins/plugins.pro
-@@ -6,4 +6,3 @@ TEMPLATE = subdirs
+@@ -6,5 +6,3 @@ TEMPLATE = subdirs
  }
  
  SUBDIRS += com/genivi/rvitrafficservice \
--           qtposition_gpsd
-diff --git a/smart-cities.pro b/smart-cities.pro
-index 8e72818..c74b020 100644
---- a/smart-cities.pro
-+++ b/smart-cities.pro
-@@ -4,7 +4,6 @@ CONFIG += desktop
- 
- SUBDIRS += plugins \
-            smart-cities \
--#           qtrvi
- 
- 
- QML_IMPORT_PATH = plugins
+-           qtposition_gpsd \
+-           com/genivi/v2x
+
